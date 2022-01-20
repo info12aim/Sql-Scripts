@@ -1,0 +1,97 @@
+--update 1000 ($)
+select p.price,s.Name,cast(Round(p.price,2) as numeric(36,2))
+from product p
+join Product_SpecificationAttribute_Mapping ps on ps.ProductId=p.Id
+join SpecificationAttributeOption s on s.Id=ps.SpecificationAttributeOptionId
+where s.SpecificationAttributeId in(5,26,31,21) --5:1000$ | 26: 1 case | 31:1roll | 21:price$
+
+
+
+update s set 
+s.Name=cast(Round(p.price,2) as numeric(36,2))
+from product p
+join Product_SpecificationAttribute_Mapping ps on ps.ProductId=p.Id
+join SpecificationAttributeOption s on s.Id=ps.SpecificationAttributeOptionId
+where s.SpecificationAttributeId in(5,26,31,21) --5:1000$ | 26: 1 case | 31:1roll | 21: price$
+
+
+--update 2000 ($)
+select p.price,pa.PriceAdjustment,pa.Name,s.Name,cast(Round((p.price +Pa.PriceAdjustment)/2,2) as numeric(36,2)) as Newprice
+from product p
+join Product_ProductAttribute_Mapping pam on pam.ProductId=p.Id
+join ProductAttributeValue pa on pa.ProductAttributeMappingId=pam.Id
+join Product_SpecificationAttribute_Mapping ps on ps.ProductId=p.Id
+join SpecificationAttributeOption s on s.Id=ps.SpecificationAttributeOptionId
+where pa.Name in('Pack Of 2000','Pack Of 2 Cases','Pack Of 2 Rolls') and s.SpecificationAttributeId in(6,27,32) --6:2000$ | 27: 2 case | 32:2roll
+
+
+update s set 
+s.Name=cast(Round((p.price +Pa.PriceAdjustment)/2,2) as numeric(36,2))
+from product p
+join Product_ProductAttribute_Mapping pam on pam.ProductId=p.Id
+join ProductAttributeValue pa on pa.ProductAttributeMappingId=pam.Id
+join Product_SpecificationAttribute_Mapping ps on ps.ProductId=p.Id
+join SpecificationAttributeOption s on s.Id=ps.SpecificationAttributeOptionId
+where pa.Name in('Pack Of 2000','Pack Of 2 Cases','Pack Of 2 Rolls') and s.SpecificationAttributeId in(6,27,32) --6:2000$ | 27: 2 case | 32:2roll
+
+
+--update 5000 ($)
+select p.price,pa.PriceAdjustment,s.Name,Round((p.price +Pa.PriceAdjustment)/5,2) as Newprice,cast(Round((p.price +Pa.PriceAdjustment)/5,2) as numeric(36,2))
+from product p
+join Product_ProductAttribute_Mapping pam on pam.ProductId=p.Id
+join ProductAttributeValue pa on pa.ProductAttributeMappingId=pam.Id
+join Product_SpecificationAttribute_Mapping ps on ps.ProductId=p.Id
+join SpecificationAttributeOption s on s.Id=ps.SpecificationAttributeOptionId
+where pa.Name in('Pack Of 5000','Pack Of 5 Cases','Pack Of 5 Rolls') and s.SpecificationAttributeId in(7,28,33) --7:5000$ | 28: 5 case | 33:5roll
+
+
+update s set 
+s.Name=cast(Round((p.price +Pa.PriceAdjustment)/5,2) as numeric(36,2))
+from product p
+join Product_ProductAttribute_Mapping pam on pam.ProductId=p.Id
+join ProductAttributeValue pa on pa.ProductAttributeMappingId=pam.Id
+join Product_SpecificationAttribute_Mapping ps on ps.ProductId=p.Id
+join SpecificationAttributeOption s on s.Id=ps.SpecificationAttributeOptionId
+where pa.Name in('Pack Of 5000','Pack Of 5 Cases','Pack Of 5 Rolls') and s.SpecificationAttributeId in(7,28,33) --7:5000$ | 28: 5 case | 33:5roll
+
+
+
+--update 10000 ($)
+select p.price,pa.PriceAdjustment,s.Name,pa.Name,Round((p.price +Pa.PriceAdjustment)/10,2) as Newprice,cast(Round((p.price +Pa.PriceAdjustment)/10,2) as numeric(36,2))
+from product p
+join Product_ProductAttribute_Mapping pam on pam.ProductId=p.Id
+join ProductAttributeValue pa on pa.ProductAttributeMappingId=pam.Id
+join Product_SpecificationAttribute_Mapping ps on ps.ProductId=p.Id
+join SpecificationAttributeOption s on s.Id=ps.SpecificationAttributeOptionId
+where pa.Name in('Pack of 10000','Pack Of 10,000','Pack Of 10 Cases','Pack Of 10 Rolls') and s.SpecificationAttributeId in(8,57,29,34)
+
+
+update s set 
+s.Name=cast(Round((p.price +Pa.PriceAdjustment)/10,2) as numeric(36,2))
+from product p
+join Product_ProductAttribute_Mapping pam on pam.ProductId=p.Id
+join ProductAttributeValue pa on pa.ProductAttributeMappingId=pam.Id
+join Product_SpecificationAttribute_Mapping ps on ps.ProductId=p.Id
+join SpecificationAttributeOption s on s.Id=ps.SpecificationAttributeOptionId
+where pa.Name in('Pack of 10000','Pack Of 10,000','Pack Of 10 Cases','Pack Of 10 Rolls') and s.SpecificationAttributeId in(8,57,29,34)
+
+
+
+--update 25000 ($)
+select p.price,pa.PriceAdjustment,s.Name,pa.Name,Round((p.price +Pa.PriceAdjustment)/25,2) as Newprice,cast(Round((p.price +Pa.PriceAdjustment)/25,2) as numeric(36,2))
+from product p
+join Product_ProductAttribute_Mapping pam on pam.ProductId=p.Id
+join ProductAttributeValue pa on pa.ProductAttributeMappingId=pam.Id
+join Product_SpecificationAttribute_Mapping ps on ps.ProductId=p.Id
+join SpecificationAttributeOption s on s.Id=ps.SpecificationAttributeOptionId
+where pa.Name in('Pack of 25000','Pack Of 25,000','Pack Of 25 Cases','Pack of 25 Rolls') and s.SpecificationAttributeId in(9,58,30,35)
+
+
+update s set 
+s.Name=cast(Round((p.price +Pa.PriceAdjustment)/25,2) as numeric(36,2))
+from product p
+join Product_ProductAttribute_Mapping pam on pam.ProductId=p.Id
+join ProductAttributeValue pa on pa.ProductAttributeMappingId=pam.Id
+join Product_SpecificationAttribute_Mapping ps on ps.ProductId=p.Id
+join SpecificationAttributeOption s on s.Id=ps.SpecificationAttributeOptionId
+where pa.Name in('Pack of 25000','Pack Of 25,000','Pack Of 25 Cases','Pack of 25 Rolls') and s.SpecificationAttributeId in(9,58,30,35)
