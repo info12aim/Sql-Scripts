@@ -1,0 +1,6 @@
+update product_specificationAttribute_mapping
+set AllowFiltering=1
+from product_specificationAttribute_mapping ps
+join specificationAttributeOption so on ps.SpecificationAttributeOptionId=so.Id
+join specificationAttribute sa on so.specificationAttributeId=sa.Id
+where sa.Id in(3) 
