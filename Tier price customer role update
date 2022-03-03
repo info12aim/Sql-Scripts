@@ -1,0 +1,3 @@
+UPDATE TierPrice 
+SET CustomerRoleId = 5
+WHERE CustomerRoleId = 1;
