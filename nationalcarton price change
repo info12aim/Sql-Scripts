@@ -1,0 +1,9 @@
+select * from TierPrice
+update TierPrice set Price=REPLACE(price,price,price * 1.1)  
+
+select * from specificationAttribute where name='20+' --'10+' --'5+' --'2+'--'Price/Case (Over 5M)' --'Price/Case (5M or Less)' --'Price/case' --'1'
+select * from SpecificationAttributeOption where SpecificationAttributeId=21 and Id=218
+--select round(name,2,0) from SpecificationAttributeOption where SpecificationAttributeId=13 and Id=217
+
+update SpecificationAttributeOption set Name=REPLACE(Name,Name,cast(Name as Decimal(18,2)) * 1.1) where SpecificationAttributeId=21 and Id=217
+update SpecificationAttributeOption set Name=REPLACE(Name,Name,Round(Name,2,0)) where SpecificationAttributeId=21 and Id=217
